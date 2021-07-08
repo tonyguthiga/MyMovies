@@ -11,9 +11,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MoviesActivity extends AppCompatActivity {
-    private TextView mLocationTextView;
-    private ListView mListView;
+    @BindView(R.id.locationTextView) TextView mLocationTextView;
+    @BindView(R.id.listView) ListView mListView;
 
     private String[] movies = new String[] {"The Avengers", "The Big Bang Theory",
             "Life of Pie", "The Bourne Identity", "The Martian", "The Originals",
@@ -26,8 +29,7 @@ public class MoviesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
 
-        mListView = (ListView) findViewById(R.id.listView);
-        mLocationTextView = (TextView) findViewById(R.id.locationTextView);
+        ButterKnife.bind(this);
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, movies);
         mListView.setAdapter(adapter);
