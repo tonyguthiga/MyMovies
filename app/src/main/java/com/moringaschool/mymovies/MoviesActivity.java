@@ -23,6 +23,11 @@ public class MoviesActivity extends AppCompatActivity {
             "Sleepy Hollow", "Revolution", "The Rookie", "The Blacklist",
             "The Vampire Diary", " Merlin", "Blackish",
             "Game of Thrones", "Vikings"};
+    private String[] genres = new String[] {"Superhero Drama", "Comedy",
+            "Drama", "Action", "Science Fiction", "Supernatural Drama",
+            "Supernatural Drama", "Post Apocalyptic", "Police Procedural Drama", "Crime Thriller",
+            "Supernatural Teen Drama", "Fantasy Adventure Drama", "Sitcom Comedy",
+            "Fantasy Drama", "Historical Fantasy Drama"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +36,7 @@ public class MoviesActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, movies);
+        MyMoviesArrayAdapter adapter = new MyMoviesArrayAdapter(this, android.R.layout.simple_list_item_1, movies, genres);
         mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
